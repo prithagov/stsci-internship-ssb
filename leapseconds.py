@@ -1,12 +1,12 @@
 import re 
 
+lines = open ('tai-utc.dat', 'r').readlines() 
+total = " " 
+for line in lines: 
+	total +=line
 
-with open ('tai-utc.dat') as myfile: 
-	head = myfile.readline()
-	#print head
-	head = re.sub('\D','',head) 
-	#print head
-	matchobj= re.search ( '2437300.5',head )
-
-if matchobj: 
-	print tuple (matchobj.group())
+	matchobj= re.findall('[\d]+\.?\d+',total)
+	
+if matchobj:
+	print tuple(matchobj) 
+	
