@@ -2,14 +2,15 @@
 
 import re 
 
+def get_utc_leap_seconds():
 
-with open('tai-utc.dat') as source:		
+	with open('tai-utc.dat') as source:		
 	
-	for text in source:
-		total = " " 
-		total+= text
-		matchobj = re.findall('\d+\.?\d*',total)
+		for text in source:
+			total = " " 
+			total+= text
+			matchobj = re.findall('\d+\.?\d*',total)
 		
-		print tuple (matchobj) [2:6]
+			print tuple (matchobj) [2:6]
 		
 	
