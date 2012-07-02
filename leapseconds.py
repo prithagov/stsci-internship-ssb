@@ -1,15 +1,15 @@
+
+
 import re 
 
 
-with open('tai-utc.dat') as f:		
-
-	for lines in f:
-		total = " "
+with open('tai-utc.dat') as source:		
+	
+	for text in source:
+		total = " " 
+		total+= text
+		matchobj = re.findall('\d+\.?\d*',total)
 		
-	total +=lines
-	matchobj= re.findall('\d+\.?\d*', total)
+		print tuple (matchobj) [2:6]
+		
 	
-	
-if matchobj: 
-
-	print tuple (matchobj) 
