@@ -14,15 +14,14 @@ now = datetime.now() # this figures out the date for today, use this to figure o
 
 response = urllib2.urlopen('http://maia.usno.navy.mil/ser7/tai-utc.dat') 
 
-#last_leapsec= datetime(_leap_seconds_cache[-1]) , for inside the () figure out how to get the program to read the date in the last line of the file 
-
-#td = now-last_leapsec , for figuring out whether or not the file needs to be updated
+last_leapsec= datetime(_leap_seconds_cache[-1]) 
+td = now-last_leapsec 
 
 
 def get_utc_leap_seconds():
 	global _leap_seconds_cache
-	# if td >= 182.621 , once you figure out how to have the program understand reading the julian date in _leap_seconds_cache[-1]
-	try: 
+	 if td >= 182.621 
+	 	try: 
 	 _leap_seconds_cache = [_LEAPSECONDS_RE.match(line).groups() for line in response]
 	 return _leap_seconds_cache
 	except IOError: 
